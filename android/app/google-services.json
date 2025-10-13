@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "411310123479",
+    "project_id": "carhub-rent",
+    "storage_bucket": "carhub-rent.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411310123479:android:c94d13f4179ab13947c392",
+        "android_client_info": {
+          "package_name": "com.example.rentapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUZo5-y8D3cc019RzBcdiqVopRK1-mQL4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
