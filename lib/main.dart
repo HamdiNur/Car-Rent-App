@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:rentapp/firebase_options.dart';
+import 'package:rentapp/present/pages/MapsDetailsPage.dart';
 import 'package:rentapp/present/pages/car_details_page.dart';
 import 'package:rentapp/present/pages/car_lis_screen.dart';
 import 'package:rentapp/present/pages/onboarding_page.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: OnboardingPage()
+     home: MapsDetailsPage()
     );
   }
 }
