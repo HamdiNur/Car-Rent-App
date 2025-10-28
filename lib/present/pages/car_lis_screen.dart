@@ -1,35 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:rentapp/data/models/car.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rentapp/present/bloc/car_bloc.dart';
+import 'package:rentapp/present/bloc/car_state.dart';
 import 'package:rentapp/present/widgets/car_card.dart';
 
-class CarLisScree extends StatelessWidget {
-
-  final List<Car> cars = [
-    Car(
-      model: "Fortuner GR",
-      distance: 970,
-      fuelCapacity: 50,
-      pricePerHour: 45,
-    ),
-    Car(
-      model: "Fortuner GR",
-      distance: 970,
-      fuelCapacity: 50,
-      pricePerHour: 45,
-    ),
-    Car(
-      model: "Fortuner GR",
-      distance: 970,
-      fuelCapacity: 50,
-      pricePerHour: 45,
-    ),
-        Car(
-      model: "Fortuner GR",
-      distance: 970,
-      fuelCapacity: 50,
-      pricePerHour: 45,
-    ),
-  ];
+class CarListScreen extends StatelessWidget {
+  const CarListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +15,23 @@ class CarLisScree extends StatelessWidget {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
       ),
-      body: ListView.builder(
-
-        itemCount: cars.length,
-        itemBuilder: (context, index) {
-          return CarCard(car: cars[index]);
+      body: BlocBuilder<CarBloc, CarState>(
+        builder: (context, state) {
+          if (state is CarsLoading) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (state is CarsLoaded) {
+            final cars = state.cars;
+            return ListView.builder(
+              itemCount: state.cars.length,
+              itemBuilder: (context, index) {
+                return CarCard(car: state.cars[index]);
+              },
+            );
+          } else if (state is CarsError) {
+            return Center(child: Text('Error: ${state.message}'));
+          } else {
+            return const SizedBox(); // fallback for unknown state
+          }
         },
       ),
     );
