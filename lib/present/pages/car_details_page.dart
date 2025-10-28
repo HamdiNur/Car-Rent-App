@@ -5,6 +5,7 @@ import 'package:rentapp/present/widgets/car_card.dart';
 import 'package:rentapp/present/widgets/more_card.dart';
 
 class CardDetailsPage extends StatefulWidget {
+
   final Car car;
 
   const CardDetailsPage({super.key, required this.car});
@@ -166,24 +167,8 @@ class _CardDetailsPageState extends State<CardDetailsPage>
                     pricePerHour: widget.car.pricePerHour + 30,
                   ),
                 ),
-                SizedBox(height: 5),
-                MoreCard(
-                  car: Car(
-                    model: widget.car.model + "-3",
-                    distance: widget.car.distance + 300,
-                    fuelCapacity: widget.car.fuelCapacity + 300,
-                    pricePerHour: widget.car.pricePerHour + 30,
-                  ),
-                ),
-                SizedBox(height: 5),
-                MoreCard(
-                  car: Car(
-                    model: widget.car.model + "-3",
-                    distance: widget.car.distance + 300,
-                    fuelCapacity: widget.car.fuelCapacity + 300,
-                    pricePerHour: widget.car.pricePerHour + 30,
-                  ),
-                ),
+           
+                
               ],
             ),
           ),
